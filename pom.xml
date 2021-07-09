@@ -36,7 +36,6 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-        <cache.miss>test</cache.miss>
 
         <formatter.skip>false</formatter.skip>
         <formatter.goal>format</formatter.goal>
