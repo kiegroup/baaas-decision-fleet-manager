@@ -3,7 +3,7 @@
 This repository stores the code for the DaaS Fleet Manager. The Fleet Manager exposes the API
 for DaaS, allow a user to create Decisions from DMN.
 
-# Running the Fleet Manager Locally
+# Running the Fleet Manager Locally!
 
 The Fleet Manager can be run locally for integration testing with a combination of `quarkus:dev` mode and some local
 dependencies managed by Docker and MiniKube.
