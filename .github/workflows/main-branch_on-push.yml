@@ -2,7 +2,7 @@ name: Decision Fleet Manager
 on:
   push:
     branches:
-      - cd-testing
+      - main
 jobs:
   decision-fleetmanager-build:
     env:
