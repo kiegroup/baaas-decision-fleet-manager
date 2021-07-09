@@ -41,6 +41,6 @@ jobs:
           fail_on_test_failures: true
           fail_if_no_tests: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Verify Native Compile
-        shell: bash
-        run: mvn -Dgithub.packages.user=${{ secrets.GH_PACKAGES_USER }} -Dgithub.packages.password=${{ secrets.GH_PACKAGES_PASSWORD }} -s ${{ github.workspace }}/.m2/settings.xml -Pnative -Dmaven.test.skip=true package
+#      - name: Verify Native Compile
+#        shell: bash
+#        run: mvn -Dgithub.packages.user=${{ secrets.GH_PACKAGES_USER }} -Dgithub.packages.password=${{ secrets.GH_PACKAGES_PASSWORD }} -s ${{ github.workspace }}/.m2/settings.xml -Pnative -Dmaven.test.skip=true package
