@@ -28,10 +28,14 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
       - name: Compile and Validate Formating
         shell: bash
-        run: mvn -Dgithub.packages.user=${{ secrets.GH_PACKAGES_USER }} -Dgithub.packages.password=${{ secrets.GH_PACKAGES_PASSWORD }} -s ${{ github.workspace }}/.m2/settings.xml -Dmaven.test.skip=true -Pvalidate-formatting package
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: mvn -Dmaven.test.skip=true -Pvalidate-formatting package
       - name: Run Test Suite
         shell: bash
-        run: mvn -Dgithub.packages.user=${{ secrets.GH_PACKAGES_USER }} -Dgithub.packages.password=${{ secrets.GH_PACKAGES_PASSWORD }} -s ${{ github.workspace }}/.m2/settings.xml test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: mvn test
       - name: Publish Test Report
         if: ${{ always() }}
         uses: scacap/action-surefire-report@v1.0.10
