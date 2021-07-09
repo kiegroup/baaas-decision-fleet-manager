@@ -41,6 +41,14 @@ jobs:
           fail_on_test_failures: true
           fail_if_no_tests: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Verify Native Compile
-        shell: bash
-        run: mvn -Dgithub.packages.user=${{ secrets.GH_PACKAGES_USER }} -Dgithub.packages.password=${{ secrets.GH_PACKAGES_PASSWORD }} -s ${{ github.workspace }}/.m2/settings.xml -Pnative -Dmaven.test.skip=true package
+#
+#   Native Compile is currently disabled for GitHub. The process was taking > 45 mins without completing, so not viable
+#   within a CI pipeline. My theory is that the default GitHub runner is too memory constrained to execute the process
+#   and ends up swapping to disk too much to make it performant. We would need to try on a dedicated runner with more
+#   memory.
+#
+#   For comparison, on our GitLab runner which had 16G of memory, this process would take ~10 minutes
+#
+#      - name: Verify Native Compile
+#        shell: bash
+#        run: mvn -Dgithub.packages.user=${{ secrets.GH_PACKAGES_USER }} -Dgithub.packages.password=${{ secrets.GH_PACKAGES_PASSWORD }} -s ${{ github.workspace }}/.m2/settings.xml -Pnative -Dmaven.test.skip=true package
